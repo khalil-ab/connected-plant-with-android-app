@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">connected_plant</string>
+    <string name="connect">connect</string>
+    <string name="string_connect" />
+    <string name="analyser">analyser</string>
+</resources>
