@@ -25,7 +25,7 @@ import java.io.UnsupportedEncodingException;
 public class iot_info_pg extends AppCompatActivity {
 
     TextView nom_plante,temperature,humidite_air,humidite_sol;
-    private Button analyser;
+    private Button analyser,localiser;
     private TextView txt;
 
     @Override
@@ -123,6 +123,76 @@ public class iot_info_pg extends AppCompatActivity {
         });
 
 
+        localiser = findViewById(R.id.localisation);
+        localiser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                String topic = "foo/bar2";
+                String payload = "the payload2";
+                byte[] encodedPayload = new byte[0];
+                try
+                {
+                    encodedPayload = payload.getBytes("UTF-8");
+                    MqttMessage message = new MqttMessage(encodedPayload);
+                    client.publish(topic, message);
+                }
+                catch (UnsupportedEncodingException | MqttException e)
+                {
+                    e.printStackTrace();
+                }
+
+                ProgressDialog progress;
+                progress = new ProgressDialog(iot_info_pg.this);
+                progress.setTitle("Please Wait!!");
+                progress.setMessage("Wait!!");
+                progress.setCancelable(true);
+                progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progress.show();
+
+                try {
+                    IMqttToken token = client.connect();
+                    token.setActionCallback(new IMqttActionListener() {
+                        @Override
+                        public void onSuccess(IMqttToken asyncActionToken) {
+                            //Toast.makeText(iot_info_pg.this, "connected", Toast.LENGTH_SHORT).show();
+
+                            String topic = "loc";
+                            int qos = 1;
+                            try {
+                                IMqttToken subToken = client.subscribe(topic, qos);
+                            } catch (MqttException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                            Toast.makeText(iot_info_pg.this, "not connected", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                }
+
+                client.setCallback(new MqttCallback() {
+                    @Override
+                    public void connectionLost(Throwable cause) {}
+
+                    @Override
+                    public void messageArrived(String topic, MqttMessage message) throws Exception
+                    {
+                        if(topic.equals("loc")){
+                                       //Toast.makeText(stream_ai.this, new String(message.getPayload()), Toast.LENGTH_SHORT).show();
+                            open_third_pg(new String(message.getPayload()));}
+                    }
+
+                    @Override
+                    public void deliveryComplete(IMqttDeliveryToken token) {}
+                });
+            }
+        });
     }
 
     public void open_second_pg(String txt)
@@ -130,6 +200,14 @@ public class iot_info_pg extends AppCompatActivity {
         String text=txt;
         Intent intent = new Intent(this, info_pg.class);
         intent.putExtra("plant_name",text);
+        startActivity(intent);
+    }
+
+    public void open_third_pg(String txt)
+    {
+        String text=txt;
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("loc",text);
         startActivity(intent);
     }
 

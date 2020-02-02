@@ -23,7 +23,7 @@ public class info_pg extends AppCompatActivity {
         deleteCache(info_pg.this);
        ImageView imageView = findViewById(R.id.img);
         Bundle extras = getIntent().getExtras();
-       String plant_name=extras.getString("plant_name");;
+       String plant_name=extras.getString("plant_name");
 
         String imageUrl = "http://192.168.43.77/html/employee/"+plant_name+".jpg";
         Picasso.get().load(imageUrl).memoryPolicy(MemoryPolicy.NO_CACHE).into(imageView);
