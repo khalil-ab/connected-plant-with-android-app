@@ -2,7 +2,7 @@ The main idea of this project is making an intelligent device that can see a flo
 
 ![](/01.jpg)
 
-03.jpg
+![](/03.jpg)
 
 ![](/02.jpg)
 
