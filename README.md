@@ -4,7 +4,7 @@ The main idea of this project is making an intelligent device that can see a flo
 
 03.jpg
 
-02.jpg
+![](/02.jpg)
 
 Here is the link of the video for my simulation
 
