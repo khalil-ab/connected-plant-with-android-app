@@ -14,7 +14,7 @@ The main idea of this project is making an intelligent device that can see a flo
 
 Here is the link of how to build it : 
 
-Here is the link of the video for my simulation :
+Here is the link of the video for my simulation : https://youtu.be/ShlUVLMwEFI
 
 Here is my email if anyone need my help or something : abouabdelmajidkhalil@gmail.com
 
