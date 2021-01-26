@@ -1,6 +1,6 @@
 The main idea of this project is making an intelligent device that can see a flower through the camera and immediately send some data to the android app so we can get the type of the flower recognized and also some detailed description of the flower
 
-![](/01.jpg)
+![](/01.png)
 
 ![](/03.jpg)
 
