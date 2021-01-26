@@ -5,7 +5,7 @@ The main idea of this project is making an intelligent device that can see a flo
 </p>
 
 <p align="center">
-  <img src="/03.jpg>
+  <img src="/03.jpg">
 </p>
 
 <p align="center">
