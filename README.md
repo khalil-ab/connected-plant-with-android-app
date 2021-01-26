@@ -5,11 +5,11 @@ The main idea of this project is making an intelligent device that can see a flo
 </p>
 
 <p align="center">
-  <img src="/03.png">
+  <img src="/03.jpg>
 </p>
 
 <p align="center">
-  <img src="/02.png">
+  <img src="/02.jpg">
 </p>
 
 Here is the link of how to build it : 
