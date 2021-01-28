@@ -12,7 +12,7 @@ The main idea of this project is making an intelligent device that can see a flo
   <img src="/02.jpg">
 </p>
 
-Here is the link of how to build it : 
+Here is the link of how to build it : https://www.instructables.com/Smart-Flower-Recognition-Using-a-Network-of-Connec/
 
 Here is the link of the video for my simulation : https://youtu.be/ShlUVLMwEFI
 
